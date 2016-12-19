@@ -26,6 +26,10 @@ class Stats extends Component{
    };
  }
 
+ componentDidMount(){
+  fetch('https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=EhCEXrfKfuNMgGH7Vn9Y2ggCbTeBhGB83xlLH8Xp').then((response) => response.json()).then((responseJSON)=>{console.log(responseJSON)});
+}
+
   _routeBack() {
     this.props.navigator.pop();
   }
