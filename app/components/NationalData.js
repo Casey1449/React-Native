@@ -57,3 +57,14 @@ const styles = StyleSheet.create({
 });
 
 export default userContainer(NationalData);
+
+// import React from 'react';
+//
+// const NationalData = ({
+//   totalResults, fuels, LNG, BD, CNG, LPG, E85, ELEC, HY
+//  }) => {
+//   return (
+//   );
+// };
+//
+// export default NationalData;
