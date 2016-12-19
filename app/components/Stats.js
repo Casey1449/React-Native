@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
-
+import NationalData from './NationalData';
 
 class Stats extends Component{
   constructor (props) {
@@ -26,9 +26,9 @@ class Stats extends Component{
    };
  }
 
- componentDidMount(){
-  fetch('https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=EhCEXrfKfuNMgGH7Vn9Y2ggCbTeBhGB83xlLH8Xp').then((response) => response.json()).then((responseJSON)=>{console.log(responseJSON)});
-}
+//  componentDidMount(){
+//   fetch('https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=EhCEXrfKfuNMgGH7Vn9Y2ggCbTeBhGB83xlLH8Xp').then((response) => response.json()).then((responseJSON)=>{console.log(responseJSON)});
+// }
 
   _routeBack() {
     this.props.navigator.pop();
@@ -44,9 +44,7 @@ class Stats extends Component{
         <Text style={styles.chart}>
           State Chart goes here!
         </Text>
-        <Text style={styles.chart}>
-          National Chart goes here!
-        </Text>
+        <NationalData />
       </View>
     )
   }
