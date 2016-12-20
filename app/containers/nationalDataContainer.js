@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import { actionCreators } from '../actions/nationalDataActions';
-// import stations from '../reducers/nationalDataReducer';
 
 const mapStateToProps = (state) => {
-  return { stations: state.nationalData };
+  return { nationalData: state.nationalData };
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,3 +1,6 @@
+'use strict';
+
+let _ = require('lodash');
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -23,30 +26,98 @@ class NationalData extends Component{
   constructor (props) {
    super(props);
    this.state = {
-     data: null
+
    };
  }
+  componentWillMount () {
+  }
 
-   componentDidMount(){
-    const { getNationalData } = this.props;
+  componentDidMount() {
+    // console.log(this.props.nationalData);
+    // console.log(this.props);
+  // this.timer = setTimeout(() => {
+  // }, 5000);
+  this.getTheData();
+  // .then(() => this.forLet());
+  // this.getTheData();
+
+
+}
+
+  // componentWillUnmount() {
+  //   clearTimeout(this.timer);
+  // }
+
+  // componentDidMount() {
+  //   this.setTimeout(
+  //       () => { this.makeArray(); },
+  //       5000
+  //     );
+    // this.getTheData();
+
+  // }
+
+  // forLet(obj) {
+  //   let newArray = [];
+  //   for (let type of obj) {
+  //     newArray.push(type[total]);
+  //   }
+  //   this.setState({ data: newArray });
+  // }
+
+  // makeArray () {
+  //   let arrayState = Array.from(this.state.data);
+  //   this.setState({ data: arrayState });
+  //   console.log(this.state.data);
+  //
+  // }
+
+  getTheData() {
+    const { getNationalData, nationalData } = this.props;
     fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`)
     .then((response) => response.json())
     .then((responseJSON)=>{
-      getNationalData(responseJSON.station_counts);
-      console.log(responseJSON.station_counts);
+      getNationalData(responseJSON.station_counts.fuels);
+      console.log(responseJSON.station_counts.fuels);
+      let currentData = _.flatMap(responseJSON.station_counts);
+      console.log(currentData);
+      // let shifted = currentData.shift();
+      // console.log(shifted);
+      // console.log(_.flatMap(currentData));
+      // let newArrayDataOfObject = Object.values(responseJSON.station_counts);
+      // this.setState({ data: responseJSON.station_counts.fuels });
+      // console.log(newArrayDataOfObject);
+      // this.forLet(responseJSON.station_counts.fuels);
     });
   }
 
   render() {
+    const { nationalData } = this.props;
+
     return(
       <View style={styles.container}>
-        <Text style={styles.chart}>
-          National Chart goes here!
-        </Text>
+        <Text>Hi!</Text>
       </View>
     )
   }
 }
+
+// let display;
+// if (nationalData) {
+//   display = (nationalData.map((s) => {
+//     <Text>{s}</Text>
+//     }));
+// }
+// if (!nationalData) {
+//   display = <Text>...loading</Text>
+// }
+
+// { this.props.nationalData ? this.props.nationalData.map((s) => {
+//   <Text>{s}</Text>
+//   }) : <Text>loading...</Text>}
+// // { this.state.data ?
+// // this.state.data.map(n => <Text>{n}</Text>) : <Text>loading...</Text>}
+
 
 export default nationalDataContainer(
                 userContainer(NationalData)
@@ -61,10 +132,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 50
   },
-  chart: {
-    fontSize: 30,
-    marginTop: 50,
-    height: 200,
+  title: {
+    fontSize: 20,
+    color: 'red',
   },
 });
 

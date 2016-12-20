@@ -36,7 +36,7 @@ class Stats extends Component{
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Button
           onPress={this._routeBack.bind(this)}
           title="← Go Back"
@@ -45,7 +45,7 @@ class Stats extends Component{
           State Chart goes here!
         </Text>
         <NationalData />
-      </View>
+      </ScrollView>
     )
   }
 }
@@ -55,8 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
     paddingTop: 50
   },
   chart: {

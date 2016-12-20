@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
-//
 import Login from './Login';
 import MapView from './MapView';
 import Profile from './Profile';
