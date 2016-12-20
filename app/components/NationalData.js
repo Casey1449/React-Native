@@ -23,14 +23,19 @@ export default class NationalData extends Component{
   constructor (props) {
    super(props);
    this.state = {
-
+     data: data
    };
  }
 
- componentDidMount(){
-  fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`)
-  .then((response) => response.json()).then((responseJSON)=>{console.log(responseJSON)});
-}
+   componentDidMount(){
+    const { getNationalData } = this.props;
+    fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`)
+    .then((response) => response.json())
+    .then((responseJSON)=>{
+      getNationalData(responseJSON);
+      console.log(responseJSON);
+    });
+  }
 
   render() {
     return(
