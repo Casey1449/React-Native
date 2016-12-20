@@ -32,7 +32,7 @@ export default class NationalData extends Component{
     fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`)
     .then((response) => response.json())
     .then((responseJSON)=>{
-      getNationalData(responseJSON);
+      getNationalData(responseJSON.station_counts);
       console.log(responseJSON);
     });
   }
