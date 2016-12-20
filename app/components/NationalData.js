@@ -19,11 +19,11 @@ import userContainer from '../containers/userContainer';
 import nationalDataContainer from '../containers/nationalDataContainer';
 import { NREL_API_KEY } from '../../Auth0-credentials';
 
-export default class NationalData extends Component{
+class NationalData extends Component{
   constructor (props) {
    super(props);
    this.state = {
-     data: data
+     data: null
    };
  }
 
@@ -33,7 +33,7 @@ export default class NationalData extends Component{
     .then((response) => response.json())
     .then((responseJSON)=>{
       getNationalData(responseJSON.station_counts);
-      console.log(responseJSON);
+      console.log(responseJSON.station_counts);
     });
   }
 
@@ -47,6 +47,10 @@ export default class NationalData extends Component{
     )
   }
 }
+
+export default nationalDataContainer(
+                userContainer(NationalData)
+              )
 
 const styles = StyleSheet.create({
   container: {
