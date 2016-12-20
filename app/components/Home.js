@@ -30,11 +30,7 @@ class Home extends Component{
    super(props);
    this.state = {
      selectedTab: 'Settings'
-   }
- }
-
- componentDidMount(){
-   console.log(this.props, this.props.navigator)
+   };
  }
 
  render() {

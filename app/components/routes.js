@@ -8,6 +8,6 @@ const routes = [
   { component: Home, title: 'Home' },
   { component: MapView, title: 'Map' },
   { component: Profile, title: 'Profile' }
-]
+];
 
 module.exports = routes;

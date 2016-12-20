@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Linking,
   StyleSheet,
@@ -14,7 +14,7 @@ import {
   ScrollView,
   Switch,
   Animated
-} from 'react-native'
+} from 'react-native';
 
 
 import userContainer from '../containers/userContainer';
@@ -29,6 +29,7 @@ class Profile extends Component{
   }
 
   _routeToStats() {
+    console.log(this.state.stateChoice);
     this.props.navigator.push({
       component: Stats,
       title: 'State Stats',
@@ -52,7 +53,7 @@ class Profile extends Component{
             <Picker
               style={styles.picker}
               selectedValue={this.state.stateChoice}
-              onValueChange={(choice) => this.setState({stateChoice: choice})}>
+              onValueChange={(choice) =>  this.setState({stateChoice: choice})}>
               <Picker.Item label="Alabama" value="alabama" />
               <Picker.Item label="Alaska" value="alaska" />
               <Picker.Item label="Arizona" value="arizona" />
@@ -107,7 +108,8 @@ class Profile extends Component{
             <TouchableHighlight
               style={styles.stateButton}
               underlayColor='#757575'
-              onPress={this._routeToStats.bind(this)}>
+              onPress={this._routeToStats.bind(this)}
+            >
               <Text style={styles.stateButtonText}>Check here</Text>
             </TouchableHighlight>
           </View>

@@ -16,8 +16,9 @@ import {
 } from 'react-native';
 
 import userContainer from '../containers/userContainer';
+import nationalDataContainer from '../containers/nationalDataContainer';
 
-class NationalData extends Component{
+export default class NationalData extends Component{
   constructor (props) {
    super(props);
    this.state = {
@@ -55,8 +56,6 @@ const styles = StyleSheet.create({
     height: 200,
   },
 });
-
-export default userContainer(NationalData);
 
 // import React from 'react';
 //
