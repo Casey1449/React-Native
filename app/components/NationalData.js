@@ -17,6 +17,7 @@ import {
 
 import userContainer from '../containers/userContainer';
 import nationalDataContainer from '../containers/nationalDataContainer';
+import NREL_API_KEY from '../../Auth0-credentials';
 
 export default class NationalData extends Component{
   constructor (props) {
@@ -27,7 +28,7 @@ export default class NationalData extends Component{
  }
 
  componentDidMount(){
-  fetch('https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=EhCEXrfKfuNMgGH7Vn9Y2ggCbTeBhGB83xlLH8Xp').then((response) => response.json()).then((responseJSON)=>{console.log(responseJSON)});
+  fetch(`https://developer.nrel.gov/api/alt-fuel-stations/v1.json?api_key=${NREL_API_KEY}`).then((response) => response.json()).then((responseJSON)=>{console.log(responseJSON)});
 }
 
   render() {

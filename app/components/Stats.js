@@ -35,7 +35,7 @@ class Stats extends Component{
   }
 
   render() {
-    return(
+    return (
       <View style={styles.container}>
         <Button
           onPress={this._routeBack.bind(this)}
